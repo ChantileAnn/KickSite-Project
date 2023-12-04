@@ -22,6 +22,7 @@
 		<div class="form-content">
 			<form class="form-detail" action="" method="post" id="myform">
 			<?php
+			include("../php/config.php");
 if (isset($_POST['register'])) {
     // Fetch data from the form
     $first_name = $_POST['first_name'];
@@ -40,25 +41,13 @@ if (isset($_POST['register'])) {
     $ranked_belt = $_POST['ranked_belt']; // Update this based on your form structure
 
     // Your SQL connection configuration
-    $host = "your_host";
-    $username = "your_username";
-    $password = "your_password";
-    $database = "your_database";
-
-    // Create a connection
-    $con = mysqli_connect($host, $username, $password, $database);
-
-    // Check connection
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
 
     // Insert data into the database
     $sql = "INSERT INTO enrolled_forms (first_name, last_name, gender, age, birthday, parents_name, contact, phone, your_email, address, school, status, enrollee_category, ranked_belt)
             VALUES ('$first_name', '$last_name', '$gender', '$age', '$birthday', '$parents_name', '$contact', '$phone', '$your_email', '$address', '$school', '$status', '$enrollee_category', '$ranked_belt')";
 
     if (mysqli_query($con, $sql)) {
-        echo "Record added successfully!";
+		header("Location: ../html/announce.html");
         // Redirect to a thank you page or wherever you want
         // header("Location: thank-you.php");
     } else {
@@ -308,7 +297,7 @@ if (isset($_POST['register'])) {
 
 
 					<div class="form-row-last">
-						<a hfref="../html/announcement.html"><input type="submit" name="register" class="register" value="Register"></a>
+						><input type="submit" name="register" class="register" value="Register">
 					</div>
 				</div>
 
