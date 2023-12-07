@@ -67,7 +67,7 @@ color: #f05252;
 
 .content{
     height: 100vh;
-    background: url('PKL.png') no-repeat;
+    background: url('../img/PKL.png') no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
